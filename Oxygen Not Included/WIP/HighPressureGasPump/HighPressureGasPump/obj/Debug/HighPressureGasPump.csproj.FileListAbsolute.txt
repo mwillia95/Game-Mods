@@ -1,0 +1,5 @@
+C:\Users\Mitchell\Desktop\HighPressureGasPump\HighPressureGasPump\obj\Debug\HighPressureGasPump.csprojResolveAssemblyReference.cache
+C:\Users\Mitchell\Documents\Klei\OxygenNotIncluded\mods\local\High Pressure Gas Pump\HighPressureGasPump.dll
+C:\Users\Mitchell\Documents\Klei\OxygenNotIncluded\mods\local\High Pressure Gas Pump\HighPressureGasPump.pdb
+C:\Users\Mitchell\Desktop\HighPressureGasPump\HighPressureGasPump\obj\Debug\HighPressureGasPump.dll
+C:\Users\Mitchell\Desktop\HighPressureGasPump\HighPressureGasPump\obj\Debug\HighPressureGasPump.pdb

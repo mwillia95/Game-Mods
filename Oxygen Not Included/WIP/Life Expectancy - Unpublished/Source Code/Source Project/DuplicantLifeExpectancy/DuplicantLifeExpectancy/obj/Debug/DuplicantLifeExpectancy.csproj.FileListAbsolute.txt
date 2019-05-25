@@ -1,0 +1,5 @@
+C:\Users\Mitchell\Documents\Klei\OxygenNotIncluded\mods\local\Life Expectancy\DuplicantLifeExpectancy.dll
+C:\Users\Mitchell\Documents\Klei\OxygenNotIncluded\mods\local\Life Expectancy\DuplicantLifeExpectancy.pdb
+C:\Users\Mitchell\Desktop\DuplicantLifeExpectancy\DuplicantLifeExpectancy\obj\Debug\DuplicantLifeExpectancy.csprojResolveAssemblyReference.cache
+C:\Users\Mitchell\Desktop\DuplicantLifeExpectancy\DuplicantLifeExpectancy\obj\Debug\DuplicantLifeExpectancy.dll
+C:\Users\Mitchell\Desktop\DuplicantLifeExpectancy\DuplicantLifeExpectancy\obj\Debug\DuplicantLifeExpectancy.pdb

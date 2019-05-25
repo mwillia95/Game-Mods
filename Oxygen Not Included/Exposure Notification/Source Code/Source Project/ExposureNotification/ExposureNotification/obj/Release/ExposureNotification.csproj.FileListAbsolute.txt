@@ -1,0 +1,7 @@
+C:\Users\Mitchell\Desktop\Mod Versions\Recent\ExposureNotification.dll
+C:\Users\Mitchell\Desktop\Mod Versions\Recent\ExposureNotification.pdb
+C:\Users\Mitchell\Desktop\ExposureNotification\ExposureNotification\obj\Release\ExposureNotification.dll
+C:\Users\Mitchell\Desktop\ExposureNotification\ExposureNotification\obj\Release\ExposureNotification.pdb
+C:\Users\Mitchell\Desktop\ExposureNotification\ExposureNotification\obj\Release\ExposureNotification.csprojResolveAssemblyReference.cache
+C:\Users\Mitchell\Documents\Klei\OxygenNotIncluded\mods\local\Exposure Notification\ExposureNotification.dll
+C:\Users\Mitchell\Documents\Klei\OxygenNotIncluded\mods\local\Exposure Notification\ExposureNotification.pdb

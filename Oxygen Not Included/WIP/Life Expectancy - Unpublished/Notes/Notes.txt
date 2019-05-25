@@ -1,0 +1,27 @@
+The starting age and length of the effects should be within a predefined range of values for each 
+state of the life cycle.
+
+If the starting age of a cycle is later in the range, the starting age for the next cycle should also
+be posotiioned further away.
+
+The distance between states should have a minimum predefined distance in cycles. After the minimum, a MinMax
+range to when the next state begins still applies. Further, when the state begins, the state has a random range
+for how long it lasts.
+
+Example:
+
+NewlyPrinted (2-4 cycles)
+Standard for 0-0 cycles
+NewlyAdjust (8-12 cycles)
+Standard for 75-100 cycles
+MidLife Crisis (8-14 cycles)
+Standard for 35-50 cycles
+Ageing (30-50 cycles)
+Elder (20-40 cycles)
+Dying of Old Age (3-5 cycles)
+
+
+Every state has a range in how long before it begins and how long it lasts. When a state ends, it returns to
+a normal state (no modifiers). If a state begins in 0-0 cycles, it immediately begins when the previous
+state ended.
+

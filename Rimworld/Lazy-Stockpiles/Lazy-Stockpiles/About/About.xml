@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Lazy Stockpiles</name>
+	<author>SuperCorgi</author>
+	<targetVersion>1.0.2331</targetVersion>
+	<description>Adds Lazy Stockpiles. These stockpiles have a setting for "laziness".
+	
+Normal - Stockpile acts as a default stockpiles
+Cache - Stockpile will mitigate number of haul jobs to it. By default, will not merge stacks at 33% or greater.
+Buffer - Stockpile will mitigate number of haul jobs from it. By default, will kick out stacks at 75% or greater.
+
+These options are configurable in the Mod Settings.
+	</description>	
+</ModMetaData>

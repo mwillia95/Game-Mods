@@ -1,0 +1,5 @@
+C:\Users\Mitchell\Documents\Klei\OxygenNotIncluded\mods\local\Piped Electrolyzer\PipedElectrolyzer.dll
+C:\Users\Mitchell\Documents\Klei\OxygenNotIncluded\mods\local\Piped Electrolyzer\PipedElectrolyzer.pdb
+C:\Users\Mitchell\Desktop\PipedElectrolyzer\PipedElectrolyzer\obj\Debug\PipedElectrolyzer.csprojResolveAssemblyReference.cache
+C:\Users\Mitchell\Desktop\PipedElectrolyzer\PipedElectrolyzer\obj\Debug\PipedElectrolyzer.dll
+C:\Users\Mitchell\Desktop\PipedElectrolyzer\PipedElectrolyzer\obj\Debug\PipedElectrolyzer.pdb

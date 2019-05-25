@@ -1,0 +1,5 @@
+C:\Users\Mitchell\Desktop\BufferedStorage\BufferedStorage\obj\Debug\BufferedStorage.csprojResolveAssemblyReference.cache
+C:\Users\Mitchell\Documents\Klei\OxygenNotIncluded\mods\local\Skilled Operate\BufferedStorage.dll
+C:\Users\Mitchell\Documents\Klei\OxygenNotIncluded\mods\local\Skilled Operate\BufferedStorage.pdb
+C:\Users\Mitchell\Desktop\BufferedStorage\BufferedStorage\obj\Debug\BufferedStorage.dll
+C:\Users\Mitchell\Desktop\BufferedStorage\BufferedStorage\obj\Debug\BufferedStorage.pdb

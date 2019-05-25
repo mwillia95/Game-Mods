@@ -1,0 +1,37 @@
+Newly Printed -> 2 Cycles
+"The Duplicant is newly printed and still adjusting to being alive.. just give him/her some time."
+Athletics -2
+Construction -2
+Digging -2
+Tinkering -2
+Strength -1
+Learning -3
+Calorie Rate 66%
+Oxygen Rate -25g/s
+Bladder Rate 66%
+Germ Immunity -0.5
+
+Newly Adjusted -> 10 Cycles
+"This Duplicant is finally getting adjusted to being alive. He/she is surprisingly quick at learning new things and has a naiive happiness."
+Learning +3
+Morale +3
+
+Mid-Life Crisis -> 10 Cycles
+"This Duplicant is becoming uncomfortable with the same-old same-old. He/she needs extra stimulation to stay happy."
+Morale -5
+
+Becoming Aged -> 20 Cycles
+"This Duplicant is starting to feel the affects of old age. Doesn't move or learn as quickly."
+Athletics -3
+Learning -3
+Tinkering -3
+
+Old Age -> 20 Cycles
+"This Duplicant is nearing the end of his/her life. Poor guy/girl!"
+Athletics -5
+Learning -5
+Germ Immunity -1.0
+Calorie Rate 66%
+Staminate Rate -15% per Cycle
+Breath -0.2%
+Oxygen Rate -25g/s
