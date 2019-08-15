@@ -30,7 +30,7 @@ namespace PipedElectrolyzer
             def.PowerInputOffset = new CellOffset(1, 0);
             def.EnergyConsumptionWhenActive = 480f;
             def.ExhaustKilowattsWhenActive = 0.5f;
-            def.SelfHeatKilowattsWhenActive = 1.5f;
+            def.SelfHeatKilowattsWhenActive = 1.75f;
             def.ViewMode = OverlayModes.Oxygen.ID;
             def.AudioCategory = "HollowMetal";
             def.InputConduitType = ConduitType.Liquid;
@@ -42,7 +42,7 @@ namespace PipedElectrolyzer
 
         public override void ConfigureBuildingTemplate(GameObject go, Tag prefab_tag)
         {
-            go.GetComponent<KPrefabID>().AddTag(RoomConstraints.ConstraintTags.IndustrialMachinery);
+            go.GetComponent<KPrefabID>().AddTag(RoomConstraints.ConstraintTags.IndustrialMachinery, false);
             PipedElectrolyzer electrolyzer = go.AddOrGet<PipedElectrolyzer>();
             electrolyzer.maxMass = 1.8f;
             electrolyzer.hasMeter = true;
@@ -53,6 +53,10 @@ namespace PipedElectrolyzer
             conduitConsumer.capacityTag = ElementLoader.FindElementByHash(SimHashes.Water).tag;
             conduitConsumer.wrongElementResult = ConduitConsumer.WrongElementResult.Dump;
 
+            Storage storage = go.AddOrGet<Storage>();
+            storage.capacityKg = 2f;
+            storage.showInUI = true;
+
             ConduitDispenser dispenser = go.AddOrGet<ConduitDispenser>();
             dispenser.conduitType = ConduitType.Gas;
             dispenser.invertElementFilter = false;
@@ -60,10 +64,6 @@ namespace PipedElectrolyzer
             {
                 SimHashes.Oxygen
             };
-
-            Storage storage = go.AddOrGet<Storage>();
-            storage.capacityKg = 2f;
-            storage.showInUI = true;
 
             ElementConverter elementConverter = go.AddOrGet<ElementConverter>();
             elementConverter.consumedElements = new ElementConverter.ConsumedElement[1]
@@ -73,8 +73,8 @@ namespace PipedElectrolyzer
 
             elementConverter.outputElements = new ElementConverter.OutputElement[2]
             {
-            new ElementConverter.OutputElement(WATER2OXYGEN_RATIO, SimHashes.Oxygen, OXYGEN_TEMPERATURE, true, 0f, 1f, false, 1f, byte.MaxValue, 0),
-            new ElementConverter.OutputElement(0.111999989f, SimHashes.Hydrogen, OXYGEN_TEMPERATURE, false, 0f, 1f, false, 1f, byte.MaxValue, 0)
+            new ElementConverter.OutputElement(WATER2OXYGEN_RATIO, SimHashes.Oxygen, OXYGEN_TEMPERATURE, false, true, 0f, 1f, 1f, byte.MaxValue, 0),
+            new ElementConverter.OutputElement(1 - WATER2OXYGEN_RATIO, SimHashes.Hydrogen, OXYGEN_TEMPERATURE, false, false, 0f, 1f, 1f, byte.MaxValue, 0)
             };
 
             Prioritizable.AddRef(go);

@@ -28,7 +28,12 @@ namespace ExposureNotification
         [HarmonyPatch("SetExposureState")]
         public static class SetExposureStateHarmonyPatch
         {
+            //When an exposure is set to exposed, it is the exact moment the Duplicant has become exposed
+            //Take the germ id, find the sickness tied to the germ, and get that sicknesses name
+            //Create a popfx (appears next to the Dupe) and add a notification (appears in the top left list)
 
+            //It would also be possible to do this as a transpiler in the InjectDisease method
+            //The method could easily bypass having to check exposure state and getting the sickness, but would be prone to breaking
             public static void Postfix(string germ_id, GermExposureMonitor.ExposureState exposure_state, GermExposureMonitor.Instance __instance)
             {
                 if (exposure_state == GermExposureMonitor.ExposureState.Exposed)
@@ -51,7 +56,11 @@ namespace ExposureNotification
             }
         }
 
-        //Need to find a better way to do this.
+        //Need to find a better way to do this
+        //When Update is first called, even postfix, the minions are not loaded into the list
+        //Would be better to find a method that is called immediately after all the Duplicants have been loaded
+        //or the method that puts all the minions into the list
+     
         [HarmonyPatch(typeof(Game))]
         [HarmonyPatch("Update")]
         public static class RunOnceMinionsLoadedPatch

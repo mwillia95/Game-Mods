@@ -5,3 +5,10 @@ C:\Users\Mitchell\Desktop\ExposureNotification\ExposureNotification\obj\Release\
 C:\Users\Mitchell\Desktop\ExposureNotification\ExposureNotification\obj\Release\ExposureNotification.csprojResolveAssemblyReference.cache
 C:\Users\Mitchell\Documents\Klei\OxygenNotIncluded\mods\local\Exposure Notification\ExposureNotification.dll
 C:\Users\Mitchell\Documents\Klei\OxygenNotIncluded\mods\local\Exposure Notification\ExposureNotification.pdb
+C:\Users\Mitchell\Documents\Klei\OxygenNotIncluded\mods\local\Local Germ Exposure Notification\ExposureNotification.dll
+C:\Users\Mitchell\Documents\Klei\OxygenNotIncluded\mods\local\Local Germ Exposure Notification\ExposureNotification.pdb
+C:\Users\Mitchell\Source\Repos\Game-Mods\Oxygen Not Included\Exposure Notification\Source Code\Source Project\ExposureNotification\ExposureNotification\obj\Release\ExposureNotification.csprojAssemblyReference.cache
+C:\Users\Mitchell\Source\Repos\Game-Mods\Oxygen Not Included\Exposure Notification\Source Code\Source Project\ExposureNotification\ExposureNotification\obj\Release\ExposureNotification.csproj.CoreCompileInputs.cache
+C:\Users\Mitchell\Source\Repos\Game-Mods\Oxygen Not Included\Exposure Notification\Source Code\Source Project\ExposureNotification\ExposureNotification\obj\Release\ExposureNotification.csproj.CopyComplete
+C:\Users\Mitchell\Source\Repos\Game-Mods\Oxygen Not Included\Exposure Notification\Source Code\Source Project\ExposureNotification\ExposureNotification\obj\Release\ExposureNotification.dll
+C:\Users\Mitchell\Source\Repos\Game-Mods\Oxygen Not Included\Exposure Notification\Source Code\Source Project\ExposureNotification\ExposureNotification\obj\Release\ExposureNotification.pdb

@@ -59,6 +59,7 @@ namespace HighPressureGasPump
             elementConsumer.storeOnConsume = true;
             elementConsumer.showInStatusPanel = false;
             elementConsumer.consumptionRadius = 3;
+            
             ConduitDispenser conduitDispenser = go.AddOrGet<ConduitDispenser>();
             conduitDispenser.conduitType = ConduitType.Gas;
             conduitDispenser.alwaysDispense = true;

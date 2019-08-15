@@ -3,3 +3,12 @@ C:\Users\Mitchell\Documents\Klei\OxygenNotIncluded\mods\local\Piped Electrolyzer
 C:\Users\Mitchell\Desktop\PipedElectrolyzer\PipedElectrolyzer\obj\Debug\PipedElectrolyzer.csprojResolveAssemblyReference.cache
 C:\Users\Mitchell\Desktop\PipedElectrolyzer\PipedElectrolyzer\obj\Debug\PipedElectrolyzer.dll
 C:\Users\Mitchell\Desktop\PipedElectrolyzer\PipedElectrolyzer\obj\Debug\PipedElectrolyzer.pdb
+C:\Users\Mitchell\Desktop\PipedElectrolyzer Build\PipedElectrolyzer.dll
+C:\Users\Mitchell\Desktop\PipedElectrolyzer Build\PipedElectrolyzer.pdb
+C:\Users\Mitchell\Source\Repos\Game-Mods\Oxygen Not Included\Piped Electrolyzer\Source Code\Source Project\PipedElectrolyzer\PipedElectrolyzer\obj\Debug\PipedElectrolyzer.csprojAssemblyReference.cache
+C:\Users\Mitchell\Source\Repos\Game-Mods\Oxygen Not Included\Piped Electrolyzer\Source Code\Source Project\PipedElectrolyzer\PipedElectrolyzer\obj\Debug\PipedElectrolyzer.csproj.CoreCompileInputs.cache
+C:\Users\Mitchell\Source\Repos\Game-Mods\Oxygen Not Included\Piped Electrolyzer\Source Code\Source Project\PipedElectrolyzer\PipedElectrolyzer\obj\Debug\PipedElectrolyzer.csproj.CopyComplete
+C:\Users\Mitchell\Source\Repos\Game-Mods\Oxygen Not Included\Piped Electrolyzer\Source Code\Source Project\PipedElectrolyzer\PipedElectrolyzer\obj\Debug\PipedElectrolyzer.dll
+C:\Users\Mitchell\Source\Repos\Game-Mods\Oxygen Not Included\Piped Electrolyzer\Source Code\Source Project\PipedElectrolyzer\PipedElectrolyzer\obj\Debug\PipedElectrolyzer.pdb
+C:\Users\Mitchell\Documents\Klei\OxygenNotIncluded\mods\local\PipedElectrolyzer Build\PipedElectrolyzer.dll
+C:\Users\Mitchell\Documents\Klei\OxygenNotIncluded\mods\local\PipedElectrolyzer Build\PipedElectrolyzer.pdb
