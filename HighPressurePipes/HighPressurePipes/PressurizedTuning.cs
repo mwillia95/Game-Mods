@@ -47,9 +47,9 @@ namespace HighPressurePipes
                 {
                     Capacity = 3f,
                     IncreaseMultiplier = 3f,
-                    KAnimTint = new Color32(255, 120, 255, 255),
+                    KAnimTint = new Color32(255, 120, 200, 255),
                     OverlayTint = new Color32(201, 80, 142, 0),
-                    FlowTint = new Color32(150, 90, 60, 255),
+                    FlowTint = new Color32(255, 90, 60, 255),
                     FlowOverlayTint = new Color32(201, 160, 160, 0),
                     IsDefault = false
                 }
@@ -59,8 +59,8 @@ namespace HighPressurePipes
                 PressurizedLiquidConduitConfig.ID,
                 new PressurizedInfo()
                 {
-                    Capacity = 20f,
-                    IncreaseMultiplier = 2f,
+                    Capacity = 30f,
+                    IncreaseMultiplier = 3f,
                     KAnimTint = new Color32(255, 120, 255, 255),
                     OverlayTint = new Color32(201, 80, 142, 0),
                     FlowTint = new Color32(150, 90, 60, 255),
@@ -85,25 +85,12 @@ namespace HighPressurePipes
                 PressurizedLiquidConduitBridgeConfig.ID,
                 new PressurizedInfo()
                 {
-                    Capacity = 20f,
-                    IncreaseMultiplier = 2f,
+                    Capacity = 30f,
+                    IncreaseMultiplier = 3f,
                     KAnimTint = new Color32(230, 120, 80, 255),
                     OverlayTint = new Color32(201, 80, 142, 0),
                     FlowTint = new Color32(255, 255, 255, 255),
                     FlowOverlayTint = new Color32(0, 0, 0, 0),
-                    IsDefault = false
-                }
-            },
-            {
-                ExtremeGasConduitConfig.ID,
-                new PressurizedInfo()
-                {
-                    Capacity = 10f,
-                    IncreaseMultiplier = 10f,
-                    KAnimTint = new Color32(240, 40, 120, 255),
-                    OverlayTint = new Color32(201, 0, 30, 0),
-                    FlowTint = new Color32(150, 40, 30, 255),
-                    FlowOverlayTint = new Color32(201, 40, 10, 0),
                     IsDefault = false
                 }
             },

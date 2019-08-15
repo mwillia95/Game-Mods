@@ -18,7 +18,7 @@ namespace HighPressurePipes
             string anim = "utilities_liquid_kanim";
             int hitpoints = 10;
             float construction_time = 14f;
-            float[] tIER = { BUILDINGS.CONSTRUCTION_MASS_KG.TIER0[0], BUILDINGS.CONSTRUCTION_MASS_KG.TIER0[0] }; //25KG, 25KG
+            float[] tIER = { BUILDINGS.CONSTRUCTION_MASS_KG.TIER1[0], BUILDINGS.CONSTRUCTION_MASS_KG.TIER1[0] }; //50KG, 50KG
             string[] constructionMaterial = { SimHashes.Steel.ToString(), MATERIALS.PLASTIC };
             float melting_point = 1600f;
             BuildLocationRule build_location_rule = BuildLocationRule.Anywhere;
@@ -43,6 +43,7 @@ namespace HighPressurePipes
             buildingDef.DragBuild = true;
             buildingDef.ReplacementTags = new List<Tag>();
             buildingDef.ReplacementTags.Add(GameTags.Pipes);
+            buildingDef.ThermalConductivity = .0537f;
             GeneratedBuildings.RegisterWithOverlay(OverlayScreen.LiquidVentIDs, ID);
             return buildingDef;
         }

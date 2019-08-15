@@ -31,7 +31,6 @@ namespace HighPressurePipes
 
         protected override void OnSpawn()
         {
-            //Debug.Log($"[Pressurized] Spawning Pressurized Component");
             base.OnSpawn();
             Conduit conduit = GetComponent<Conduit>();
             ConduitBridge bridge = GetComponent<ConduitBridge>();
@@ -46,7 +45,6 @@ namespace HighPressurePipes
             }
             if (!Info.IsDefault)
             {
-                //Debug.Log($"[Pressurized] Loaded a non-default pipe!");
                 KAnimControllerBase kAnim = this.GetComponent<KAnimControllerBase>();
                 if (kAnim != null)
                     kAnim.TintColour = Info.KAnimTint;

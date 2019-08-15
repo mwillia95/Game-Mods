@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using TUNING;
 using UnityEngine;
 
-namespace HighPressurePipes
+namespace ExtremePipes
 {
     public class ExtremeGasConduitConfig : IBuildingConfig
     {
@@ -18,8 +15,8 @@ namespace HighPressurePipes
             int height = 1;
             string anim = "utilities_gas_radiant_kanim";
             int hitpoints = 10;
-            float construction_time = 14f;
-            float[] tIER = { BUILDINGS.CONSTRUCTION_MASS_KG.TIER0[0], BUILDINGS.CONSTRUCTION_MASS_KG.TIER0[0] }; //25KG, 25KG
+            float construction_time = 30f;
+            float[] tIER = { BUILDINGS.CONSTRUCTION_MASS_KG.TIER2[0], BUILDINGS.CONSTRUCTION_MASS_KG.TIER2[0] }; //25KG, 25KG
             string[] constructionMaterial = { SimHashes.Steel.ToString(), MATERIALS.PLASTIC };
             float melting_point = 1600f;
             BuildLocationRule build_location_rule = BuildLocationRule.Anywhere;
@@ -75,4 +72,3 @@ namespace HighPressurePipes
         }
     }
 }
-

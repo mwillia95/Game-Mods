@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using STRINGS;
 using System.Reflection;
 using System.Reflection.Emit;
@@ -82,7 +80,6 @@ namespace HighPressurePipes
             }
         }
 
-
         internal static List<QueueDamage> queueDamages = new List<QueueDamage>();
 
         private static float IntegratePressurized(float standardMax, ConduitType conduitType, int cell)
@@ -95,10 +92,13 @@ namespace HighPressurePipes
 
         public static Pressurized GetPressurizedAt(int cell, int layer)
         {
+
             return Grid.Objects[cell, layer]?.GetComponent<Pressurized>();
         }
         public static Pressurized GetPressurizedAt(int cell, ConduitType type, bool isBridge = false)
         {
+            if (type != ConduitType.Gas && type != ConduitType.Liquid)
+                return null;
             int layer = isBridge ? connectionLayers[(int)type] : layers[(int)type];
             return Grid.Objects[cell, layer]?.GetComponent<Pressurized>();
         }

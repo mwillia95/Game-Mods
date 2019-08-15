@@ -44,15 +44,14 @@ namespace HighPressurePipes
             MethodInfo conduitContentsMass = AccessTools.Property(typeof(ConduitFlow.ConduitContents), "mass").GetGetMethod();
             FieldInfo contextLerpPercent = AccessTools.Field(RenderMeshContext, "lerp_percent");
             if (target == default(MethodInfo))
-            {
                 Debug.LogWarning($"[Pressurized] Could not find ConduitFlowVisualizer.CalculateMassScale() MethodBase");
-            }
+
             if (RenderMeshContext == null)
                 Debug.LogWarning($"[Pressurized] Could not find Type for RenderMeshContext!!");
+
             if (Context_Outer == null)
-            {
                 Debug.LogWarning($"[Pressurized] Could not find FieldInfo for outer context!");
-            }
+
             bool foundFirst = false;
             foreach (CodeInstruction original in instructions)
             {
@@ -106,11 +105,10 @@ namespace HighPressurePipes
         {
             try
             {
-                PressurizedInfo info = Integration.GetPressurizedAt(cell, type)?.Info;
-                if (info != null && !info.IsDefault)
-                {
-                    return originalMass / info.IncreaseMultiplier;
-                }
+                Pressurized pressure = Integration.GetPressurizedAt(cell, type);
+                if (!Pressurized.IsDefault(pressure))
+                    return originalMass / pressure.Info.IncreaseMultiplier;
+
                 return originalMass;
             }
             catch(Exception e)

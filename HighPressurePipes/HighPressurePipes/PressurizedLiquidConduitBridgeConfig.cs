@@ -40,6 +40,7 @@ namespace HighPressurePipes
             buildingDef.PermittedRotations = PermittedRotations.R360;
             buildingDef.UtilityInputOffset = new CellOffset(-1, 0);
             buildingDef.UtilityOutputOffset = new CellOffset(1, 0);
+            buildingDef.ThermalConductivity = .0537f;
             GeneratedBuildings.RegisterWithOverlay(OverlayScreen.LiquidVentIDs, ID);
             return buildingDef;
         }

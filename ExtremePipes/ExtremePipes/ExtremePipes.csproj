@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C19517D7-C6F3-40DE-88A2-1844EFCB5CE9}</ProjectGuid>
+    <ProjectGuid>{AF388F77-917C-476F-95CF-9B56A7780DF3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HighPressurePipes</RootNamespace>
-    <AssemblyName>HighPressurePipes</AssemblyName>
+    <RootNamespace>ExtremePipes</RootNamespace>
+    <AssemblyName>ExtremePipes</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\Documents\Klei\OxygenNotIncluded\mods\dev\Local Pressurized Pipes\</OutputPath>
+    <OutputPath>..\..\..\..\..\Documents\Klei\OxygenNotIncluded\mods\dev\Local Extreme Pipes\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -40,6 +40,10 @@
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
+    <Reference Include="HighPressurePipes">
+      <HintPath>..\..\..\..\..\Documents\Klei\OxygenNotIncluded\mods\dev\Local Pressurized Pipes\HighPressurePipes.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -54,17 +58,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Custom_HarmonyPatch.cs" />
-    <Compile Include="HighPressureGasResevoir.cs" />
-    <Compile Include="HighPressureLiquidReservoirConfig.cs" />
-    <Compile Include="IntegrationHelper.cs" />
-    <Compile Include="Pressurized.cs" />
-    <Compile Include="PressurizedGasConduitBridgeConfig.cs" />
-    <Compile Include="PressurizedGasConduitConfig.cs" />
     <Compile Include="HarmonyPatches.cs" />
-    <Compile Include="PressurizedLiquidConduitBridgeConfig.cs" />
-    <Compile Include="PressurizedLiquidConduitConfig.cs" />
-    <Compile Include="PressurizedTuning.cs" />
+    <Compile Include="ExtremeGasConduitConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

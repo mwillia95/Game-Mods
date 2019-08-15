@@ -19,10 +19,10 @@ namespace HighPressurePipes
         //ConduitFlow.FreezeConduitContents
         //ConduitFlow.MeltConduitContents
         private static readonly FieldInfo maxMass = AccessTools.Field(typeof(ConduitFlow), "MaxMass");
-        private static readonly FieldInfo bridgeInputCell = AccessTools.Field(typeof(ConduitBridge), "inputCell");
-        private static readonly Color32 PressurizedColor = new Color32(201, 80, 142, 0);
-        private static readonly Color32 PressurizedConduitColor = new Color32(66, 15, 12, 255);
-        private static readonly Color32 PressurizedConduitKAnimTint = new Color32(180, 80, 255, 255);
+        //private static readonly FieldInfo bridgeInputCell = AccessTools.Field(typeof(ConduitBridge), "inputCell");
+        //private static readonly Color32 PressurizedColor = new Color32(201, 80, 142, 0);
+        //private static readonly Color32 PressurizedConduitColor = new Color32(66, 15, 12, 255);
+        //private static readonly Color32 PressurizedConduitKAnimTint = new Color32(180, 80, 255, 255);
 
         [HarmonyPatch(typeof(GeneratedBuildings))]
         [HarmonyPatch("LoadGeneratedBuildings")]
@@ -53,12 +53,6 @@ namespace HighPressurePipes
                 Strings.Add(prefix + ".DESC", "Yep. Carries a lot of liquid.");
                 Strings.Add(prefix + ".EFFECT", "Carries a whole lot of liquid.");
                 ModUtil.AddBuildingToPlanScreen("Plumbing", PressurizedLiquidConduitBridgeConfig.ID);
-
-                prefix = "STRINGS.BUILDINGS.PREFABS." + ExtremeGasConduitConfig.ID.ToUpper();
-                Strings.Add(prefix + ".NAME", "Extreme Gas Pipe");
-                Strings.Add(prefix + ".DESC", "Crikey.");
-                Strings.Add(prefix + ".EFFECT", "WOAH! Carries a whole buncha bunch of gas.");
-                ModUtil.AddBuildingToPlanScreen("HVAC", ExtremeGasConduitConfig.ID);
             }
         }
 
@@ -323,7 +317,7 @@ namespace HighPressurePipes
                 if (capacity < contents.mass)
                 {
                     float initial = contents.mass;
-                    float removed = contents.RemoveMass(contents.mass - capacity);
+                    float removed = contents.RemoveMass(initial - capacity);
                     float ratio = removed / initial;
                     contents.diseaseCount = (int)((float)contents.diseaseCount * ratio);
                     BuildingHP.DamageSourceInfo damage = Integration.GetPressureDamage();
