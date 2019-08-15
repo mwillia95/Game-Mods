@@ -104,7 +104,6 @@ namespace HighPressurePipes
         }
         private static float ModifyApparentMass(float originalMass, int cell, ConduitType type)
         {
-            //float capacity = Integration.GetCapacityAt(cell, Integration.layers[(int)type]);
             try
             {
                 PressurizedInfo info = Integration.GetPressurizedAt(cell, type)?.Info;

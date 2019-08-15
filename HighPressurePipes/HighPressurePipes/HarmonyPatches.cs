@@ -83,84 +83,14 @@ namespace HighPressurePipes
                 Pressurized pressure = controller.GetComponent<Pressurized>();
                 if (!Pressurized.IsDefault(pressure))
                     controller.TintColour = pressure.Info.KAnimTint;
-                //Conduit conduit = controller.GetComponent<Conduit>();
-                //ConduitBridge bridge = controller.GetComponent<ConduitBridge>();
-                //int cell, layer;
-                //if (conduit != null)
-                //{
-                //    cell = Grid.PosToCell(conduit);
-                //    layer = Integration.layers[(int)conduit.ConduitType];
-                //}
-                //else if (bridge != null)
-                //{
-                //    cell = (int)AccessTools.Field(typeof(ConduitBridge), "inputCell").GetValue(bridge);
-                //    layer = Integration.connectionLayers[(int)bridge.type];
-                //}
-                //else
-                //    return;
-                ////PressurizedInfo info = Integration.GetPressurizedInfo(cell, layer);
-                //if (pressure != null && !pressure.Info.IsDefault)
-                //    controller.TintColour = pressure.Info.KAnimTint;
             }
         }
-
-        //If one of our pressurized conduits have spawned, tint the color and mark what its capacity should be in a dictionary
-        //[HarmonyPatch(typeof(Conduit), "OnSpawn")]
-        //internal static class Patch_Conduit_OnSpawn
-        //{
-        //    internal static void Postfix(Conduit __instance)
-        //    {
-        //        ConduitType type = __instance.ConduitType;
-        //        if (type != ConduitType.Gas && type != ConduitType.Liquid)
-        //            return;
-        //        Building building = __instance.GetComponent<Building>();
-        //        int layer = Integration.layers[(int)type];
-        //        PressurizedInfo info = PressurizedTuning.GetPressurizedInfo(building.Def.PrefabID);
-        //        Integration.MarkConduitInfo(__instance.Cell, layer, info);
-        //        if (!info.IsDefault)
-        //        {
-        //            KAnimControllerBase kAnim = __instance.GetComponent<KAnimControllerBase>();
-        //            if (kAnim != null)
-        //                kAnim.TintColour = info.KAnimTint;
-        //            else
-        //                Debug.LogWarning($"[Pressurized] Conduit.OnSpawn() KAnimControllerBase component was null!");
-        //        }
-        //    }
-        //}
-
-        //[HarmonyPatch(typeof(ConduitBridge), "OnSpawn")]
-        //internal static class Patch_ConduitBridge_OnSpawn
-        //{
-        //    internal static void Postfix(ConduitBridge __instance)
-        //    {
-        //        ConduitType type = __instance.type;
-        //        __instance.transform.GetPosition();
-        //        if (type != ConduitType.Gas && type != ConduitType.Liquid)
-        //            return;
-        //        Building building = __instance.GetComponent<Building>();
-        //        int layer = Integration.connectionLayers[(int)type];
-        //        int cell = (int)bridgeInputCell.GetValue(__instance);
-        //        PressurizedInfo info = PressurizedTuning.GetPressurizedInfo(building.Def.PrefabID);
-        //        Integration.MarkConduitInfo(cell, layer, info);
-        //        if (!info.IsDefault)
-        //        {
-        //            KAnimControllerBase kAnim = __instance.GetComponent<KAnimControllerBase>();
-        //            if (kAnim != null)
-        //            {
-        //                kAnim.TintColour = PressurizedConduitKAnimTint;
-        //            }
-        //            else
-        //                Debug.LogWarning($"[Pressurized] Conduit.OnSpawn() KAnimControllerBase component was null!");
-        //        }
-        //    }
-        //}
 
         [HarmonyPatch(typeof(ConduitBridge), "OnPrefabInit")]
         internal static class Patch_ConduitBridge_OnPrefabInit
         {
             internal static void Postfix(ConduitBridge __instance)
             {
-                //Debug.Log($"[Pressurized] Adding Pressurized Component on Prefab");
                 __instance.gameObject.AddOrGet<Pressurized>();
             }
         }
@@ -169,7 +99,6 @@ namespace HighPressurePipes
         {
             internal static void Postfix(Conduit __instance)
             {
-                //Debug.Log($"[Pressurized] Adding Pressurized Component on Prefab");
                 __instance.gameObject.AddOrGet<Pressurized>();
             }
         }
@@ -193,19 +122,6 @@ namespace HighPressurePipes
             }
         }
 
-        //To remove the entry in the dictionary
-        //[HarmonyPatch(typeof(Conduit), "OnCleanUp")]
-        //internal static class Patch_Conduit_OnCleanup
-        //{
-        //    internal static void Postfix(Conduit __instance)
-        //    {
-        //        ConduitType type = __instance.ConduitType;
-        //        if (type != ConduitType.Gas && type != ConduitType.Liquid)
-        //            return;
-        //        Integration.UnmarkConduitInfo(__instance.Cell, Integration.layers[(int)__instance.ConduitType]);
-        //    }
-        //}
-
         //To change the color of how our pressurized pipes are displayed in their respective overlay
         [HarmonyPatch(typeof(OverlayModes.ConduitMode), "Update")]
         internal static class Patch_OvererlayModesConduitMode_Update
@@ -216,32 +132,8 @@ namespace HighPressurePipes
                 int layerTargetIdx = 12;
                 int tintColourIdx = 15;
                 bool foundVar = false;
-                //bool foundColour = false;
-                //bool foundLayer = false;
                 LocalVariableInfo layerTargetInfo = original.GetMethodBody().LocalVariables.FirstOrDefault(x => x.LocalIndex == layerTargetIdx);
-                //foreach (LocalVariableInfo var in original.GetMethodBody().LocalVariables)
-                //{
-                //    Debug.Log(var);
-                //    if (var.LocalIndex == tintColourIdx)
-                //    {
-                //        if (var.LocalType != typeof(Color32))
-                //            Debug.LogError($"[Pressurized] OverlayModes.ConduitMode.Update() Transpiler -> Local variable signatures did not match expected signatures");
-                //        else
-                //            foundColour = true;
-                //    }
-                //    else if (var.LocalIndex == layerTargetIdx)
-                //    {
-                //        if (var.LocalType != typeof(SaveLoadRoot))
-                //            Debug.LogError($"[Pressurized] OverlayModes.ConduitMode.Update() Transpiler -> Local variable signatures did not match expected signatures");
-                //        else
-                //        {
-                //            foundLayer = true;
-                //            layerTargetInfo = var;
-                //        }
-                //    }
-                //}
-
-                foundVar = layerTargetInfo != default(LocalVariableInfo); //foundLayer && foundColour;
+                foundVar = layerTargetInfo != default(LocalVariableInfo);
                 if (!foundVar)
                     Debug.LogError($"[Pressurized] OverlayModes.ConduitMode.Update() Transpiler -> Local variable signatures did not match expected signatures");
 
@@ -265,32 +157,6 @@ namespace HighPressurePipes
                     return pressurized.Info.OverlayTint;
                 else
                     return original;
-
-                //Conduit conduit = layerTarget.GetComponent<Conduit>();
-                //int cell;
-                //int layer;
-                //if (conduit != null)
-                //{
-                //    cell = conduit.GetNetworkCell();
-                //    layer = Integration.layers[(int)conduit.type];
-                //}
-                //else
-                //{
-                //    ConduitBridge bridge = layerTarget.GetComponent<ConduitBridge>();
-                //    if (bridge != null)
-                //    {
-                //        cell = (int)AccessTools.Field(typeof(ConduitBridge), "inputCell").GetValue(bridge);
-                //        layer = Integration.connectionLayers[(int)bridge.type];
-                //    }
-                //    else
-                //        return original;
-                //}
-                //Pressurized pressurized = Integration.GetPressurizedAt(cell, layer);
-                ////PressurizedInfo _info = Integration.GetPressurizedInfo(cell, layer);
-                //if (pressurized != null && !pressurized.Info.IsDefault)
-                //    return pressurized.Info.OverlayTint;
-                //else
-                //    return original;
             }
         }
 
@@ -384,12 +250,6 @@ namespace HighPressurePipes
                 Pressurized pressure = Integration.GetPressurizedAt(cell, (ConduitType)conduitType.GetValue(___flowManager));
                 if (!Pressurized.IsDefault(pressure))
                     conductivity = 1f;
-                //int layer = 0;
-                //layer = Integration.layers[(int)(ConduitType)conduitType.GetValue(___flowManager)];
-                //if (Integration.GetCapacityAt(cell, layer) != -1f)
-                //{
-                //    conductivity = 1f;
-                //}
             }
         }
         //if our pipe does not have a thermal conductivity of 1f, this method would originally attempt to remove it even though it does not exist because of the above patch
@@ -403,12 +263,6 @@ namespace HighPressurePipes
                 Pressurized pressure = Integration.GetPressurizedAt(cell, (ConduitType)conduitType.GetValue(___flowManager));
                 if (!Pressurized.IsDefault(pressure))
                     conductivity = 1f;
-                //int layer = 0;
-                //layer = Integration.layers[(int)(ConduitType)conduitType.GetValue(___flowManager)];
-                //if (Integration.GetCapacityAt(cell, layer) != -1f)
-                //{
-                //    conductivity = 1f;
-                //}
             }
         }
 
@@ -420,15 +274,9 @@ namespace HighPressurePipes
 
             internal static void Postfix(ConduitFlowVisualizer __instance, int cell, ConduitFlow ___flowManager, bool ___showContents, ref Color32 __result)
             {
-                //int layer = 0;
-                //layer = Integration.layers[(int)(ConduitType)conduitType.GetValue(___flowManager)];
                 Pressurized pressure = Integration.GetPressurizedAt(cell, (ConduitType)conduitType.GetValue(___flowManager));
-                //PressurizedInfo info = Integration.GetPressurizedInfo(cell, layer);
                 if (!Pressurized.IsDefault(pressure))
-                {
-                    //Debug.Log($"[Pressurized] CellTintColour -> R: {__result.r} G: {__result.g} B: {__result.b} A: {__result.a}");                   
                     __result = ___showContents ? pressure.Info.FlowOverlayTint : pressure.Info.FlowTint;
-                }
             }
         }
 
@@ -438,11 +286,8 @@ namespace HighPressurePipes
         {
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
-                Debug.LogWarning($"[Pressurized] Beginning transpiler for ConduitBridge update");
+               // Debug.LogWarning($"[Pressurized] Beginning transpiler for ConduitBridge update");
                 MethodInfo flowManagerGetContents = AccessTools.Method(typeof(ConduitFlow), "GetContents");
-                conduitBridgeInputCell = AccessTools.Field(typeof(ConduitBridge), "inputCell");
-                flowManagerMaxMass = AccessTools.Field(typeof(ConduitFlow), "MaxMass");
-                flowManagerconduitType = AccessTools.Field(typeof(ConduitFlow), "conduitType");
                 MethodInfo setMaxFlowPatch = AccessTools.Method(typeof(Patch_ConduitBridge_ConduitUpdate), nameof(SetMaxFlow));
                 foreach (CodeInstruction original in instructions)
                 {
@@ -452,43 +297,11 @@ namespace HighPressurePipes
                         yield return new CodeInstruction(OpCodes.Ldarg_0);
                         yield return new CodeInstruction(OpCodes.Ldloc_0);
                         yield return new CodeInstruction(OpCodes.Call, setMaxFlowPatch);
-                        //yield return new CodeInstruction(OpCodes.Ldloc_0);
-                        //yield return new CodeInstruction(OpCodes.Ldarg_0);
-                        //yield return new CodeInstruction(OpCodes.Call, setMaxFlowPatch);
                     }
                     else
                         yield return original;
                 }
             }
-            private static FieldInfo flowManagerMaxMass = null;
-            private static FieldInfo flowManagerconduitType = null;
-            private static FieldInfo conduitBridgeInputCell = null;
-            //private static ConduitFlow.ConduitContents SetMaxFlow(ConduitFlow.ConduitContents contents, ConduitFlow manager, ConduitBridge bridge)
-            //{
-            //    //ConduitBridge can normally always operate even if broken. Prevent any flow from ocurring by making the apparent contents empty.
-            //    if (bridge.GetComponent<BuildingHP>().HitPoints == 0)
-            //    {
-            //        //does not actually remove mass from the conduit, just changes what the bridge sees
-            //        contents.RemoveMass(contents.mass);
-            //        return contents;
-            //    }
-            //    int inputCell = (int)conduitBridgeInputCell.GetValue(bridge);
-            //    float maxMass = (float)flowManagerMaxMass.GetValue(manager);
-            //    float capacity = Integration.GetCapacityAt(inputCell, Integration.connectionLayers[(int)flowManagerconduitType.GetValue(manager)]);
-            //    maxMass = capacity > 0f ? capacity : maxMass;
-            //    //If the ConduitBridge is not supposed to support the amount of fluid currently in the contents, only make the bridge's intended max visible
-            //    //Also immediately deal damage if the current contents are higher than the intended max.
-            //    if (maxMass < contents.mass)
-            //    {
-            //        float initial = contents.mass;
-            //        float removed = contents.RemoveMass(contents.mass - maxMass);
-            //        float ratio = removed / initial;
-            //        contents.diseaseCount = (int)((float)contents.diseaseCount * ratio);
-            //        BuildingHP.DamageSourceInfo damage = Integration.GetPressureDamage();
-            //        bridge.Trigger((int)GameHashes.DoBuildingDamage, damage);
-            //    }
-            //    return contents;
-            //}
 
             private static ConduitFlow.ConduitContents SetMaxFlow(ConduitFlow.ConduitContents contents, ConduitBridge bridge, ConduitFlow manager)
             {
@@ -503,7 +316,7 @@ namespace HighPressurePipes
                 if (pressure?.Info?.Capacity > 0f)
                     capacity = pressure.Info.Capacity;
                 else
-                    capacity = (float)flowManagerMaxMass.GetValue(manager);
+                    capacity = (float)maxMass.GetValue(manager);
 
                 //If the ConduitBridge is not supposed to support the amount of fluid currently in the contents, only make the bridge's intended max visible
                 //Also immediately deal damage if the current contents are higher than the intended max.
@@ -517,7 +330,6 @@ namespace HighPressurePipes
                     bridge.Trigger((int)GameHashes.DoBuildingDamage, damage);
                 }
                 return contents;
-
             }
         }
     }
