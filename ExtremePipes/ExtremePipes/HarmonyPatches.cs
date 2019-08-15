@@ -30,6 +30,21 @@ namespace ExtremePipes
                     FlowOverlayTint = new Color32(255, 40, 10, 0),
                     IsDefault = false
                 });
+                prefix = "STRINGS.BUILDINGS.PREFABS." + ExtremeLiquidConduitConfig.ID.ToUpper();
+                Strings.Add(prefix + ".NAME", "Extreme Liquid Pipe");
+                Strings.Add(prefix + ".DESC", "Crikey.");
+                Strings.Add(prefix + ".EFFECT", "WOAH! Carries a whole buncha bunch of liquid.");
+                ModUtil.AddBuildingToPlanScreen("Plumbing", ExtremeLiquidConduitConfig.ID);
+                PressurizedTuning.TryAddPressurizedInfo(ExtremeLiquidConduitConfig.ID, new PressurizedInfo()
+                {
+                    Capacity = 100f,
+                    IncreaseMultiplier = 10f,
+                    KAnimTint = new Color32(240, 40, 120, 255),
+                    OverlayTint = new Color32(201, 0, 30, 0),
+                    FlowTint = new Color32(200, 40, 30, 255),
+                    FlowOverlayTint = new Color32(255, 40, 10, 0),
+                    IsDefault = false
+                });
             }
         }
     }

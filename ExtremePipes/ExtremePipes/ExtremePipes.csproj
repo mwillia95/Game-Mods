@@ -58,6 +58,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExtremeLiquidConduitConfig.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="ExtremeGasConduitConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
