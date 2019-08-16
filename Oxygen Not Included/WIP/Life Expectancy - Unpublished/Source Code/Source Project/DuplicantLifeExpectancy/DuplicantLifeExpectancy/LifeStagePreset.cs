@@ -13,14 +13,18 @@ namespace DuplicantLifeExpectancy
             public string Name;
             public MathUtil.MinMax BeginsIn;
             public MathUtil.MinMax LastsFor;
-            private bool Is_Bad;
+            private readonly bool Is_Bad;
             public string NextPreset;
             public bool DeathStage;
             public List<AttributeModifier> Modifiers = new List<AttributeModifier>();
             public Effect GetEffect(float length)
             {
-                Effect e = new Effect(ID, Name, Description, length, true, true, Is_Bad);
-                e.SelfModifiers = Modifiers;
+                bool show_in_ui = true;
+                bool trigger_floating_text = true;
+                Effect e = new Effect(ID, Name, Description, length, show_in_ui, trigger_floating_text, Is_Bad)
+                {
+                    SelfModifiers = Modifiers
+                };
                 return e;
             }
 
@@ -84,13 +88,15 @@ namespace DuplicantLifeExpectancy
 
         public static void BuildPresets()
         {
-            List<Preset> p = new List<Preset>();
-            p.Add(NewlyPrintedPreset());
-            p.Add(NewlyAdjustedPreset());
-            p.Add(MidLifeCrisisPreset());
-            p.Add(AgingPreset());
-            p.Add(ElderPreset());
-            p.Add(DyingOfAgePreset());
+            List<Preset> p = new List<Preset>()
+            {
+                NewlyPrintedPreset(),
+                NewlyAdjustedPreset(),
+                MidLifeCrisisPreset(),
+                AgingPreset(),
+                ElderPreset(),
+                DyingOfAgePreset()
+            };
             _presets = p;
         }
 
@@ -102,13 +108,15 @@ namespace DuplicantLifeExpectancy
             string nextPreset = "NewlyAdjusted";
             MathUtil.MinMax beginsIn = new MathUtil.MinMax(0, 0);
             MathUtil.MinMax lastsFor = new MathUtil.MinMax(1, 1);
-            List<AttributeModifier> modifiers = new List<AttributeModifier>();
-            modifiers.Add(new AttributeModifier(Db.Get().Attributes.Athletics.Id, -2f, name));
-            modifiers.Add(new AttributeModifier(Db.Get().Attributes.Learning.Id, -1f, name));
-            modifiers.Add(new AttributeModifier(Db.Get().Attributes.AirConsumptionRate.Id, -0.33f, name, true));
-            modifiers.Add(new AttributeModifier("CaloriesDelta", (100f/60f)*300f, name));
-            modifiers.Add(new AttributeModifier("StaminaDelta", -(30f/600f), name));
-            modifiers.Add(new AttributeModifier(Db.Get().Attributes.GermResistance.Id, -0.5f, name));
+            List<AttributeModifier> modifiers = new List<AttributeModifier>
+            {
+                new AttributeModifier(Db.Get().Attributes.Athletics.Id, -2f, name),
+                new AttributeModifier(Db.Get().Attributes.Learning.Id, -1f, name),
+                new AttributeModifier(Db.Get().Attributes.AirConsumptionRate.Id, -0.33f, name, true),
+                new AttributeModifier("CaloriesDelta", (100f / 60f) * 300f, name),
+                new AttributeModifier("StaminaDelta", -(30f / 600f), name),
+                new AttributeModifier(Db.Get().Attributes.GermResistance.Id, -0.5f, name)
+            };
             Preset p = new Preset(id, description, name, beginsIn, lastsFor, true, modifiers, nextPreset);
 
             return p;
@@ -121,12 +129,14 @@ namespace DuplicantLifeExpectancy
             string description = "This Duplicant is starting to catch up. They are picking up things quicker than normal.";
             MathUtil.MinMax beginsIn = new MathUtil.MinMax(0, 0);
             MathUtil.MinMax lastsFor = new MathUtil.MinMax(8, 12);
-            List<AttributeModifier> modifiers = new List<AttributeModifier>();
-            modifiers.Add(new AttributeModifier(Db.Get().Attributes.Athletics.Id, 2f, name));
-            modifiers.Add(new AttributeModifier(Db.Get().Attributes.Learning.Id, 2f, name));
-            modifiers.Add(new AttributeModifier(Db.Get().AttributeConverters.TrainingSpeed.Id, 100f, name));
-            modifiers.Add(new AttributeModifier(Db.Get().Attributes.QualityOfLife.Id, 2f, name));
-            modifiers.Add(new AttributeModifier("CaloriesDelta", (100f / 60f) * -100f, name));
+            List<AttributeModifier> modifiers = new List<AttributeModifier>
+            {
+                new AttributeModifier(Db.Get().Attributes.Athletics.Id, 2f, name),
+                new AttributeModifier(Db.Get().Attributes.Learning.Id, 2f, name),
+                new AttributeModifier(Db.Get().AttributeConverters.TrainingSpeed.Id, 100f, name),
+                new AttributeModifier(Db.Get().Attributes.QualityOfLife.Id, 2f, name),
+                new AttributeModifier("CaloriesDelta", (100f / 60f) * -100f, name)
+            };
             Preset p = new Preset(id, description, name, beginsIn, lastsFor, false, modifiers, "MidLifeCrisis");
 
             return p;
@@ -139,8 +149,10 @@ namespace DuplicantLifeExpectancy
             string description = "This Duplicant is becoming uncomfortable with the same-old same-old. He/she needs extra stimulation to stay happy.";
             MathUtil.MinMax beginsIn = new MathUtil.MinMax(50, 75);
             MathUtil.MinMax lastsFor = new MathUtil.MinMax(8, 12);
-            List<AttributeModifier> modifiers = new List<AttributeModifier>();
-            modifiers.Add(new AttributeModifier(Db.Get().Attributes.QualityOfLife.Id, -4f, name));
+            List<AttributeModifier> modifiers = new List<AttributeModifier>
+            {
+                new AttributeModifier(Db.Get().Attributes.QualityOfLife.Id, -4f, name)
+            };
             Preset p = new Preset(id, description, name, beginsIn, lastsFor, true, modifiers, "Aging");
 
             return p;
@@ -155,11 +167,13 @@ namespace DuplicantLifeExpectancy
             string description = "This Duplicant is starting to feel the effects of old age.";
             MathUtil.MinMax beginsIn = new MathUtil.MinMax(35, 50);
             MathUtil.MinMax lastsFor = new MathUtil.MinMax(30, 50);
-            List<AttributeModifier> modifiers = new List<AttributeModifier>();
-            modifiers.Add(new AttributeModifier(Db.Get().Attributes.Athletics.Id, -3f, name));
-            modifiers.Add(new AttributeModifier(Db.Get().Attributes.Learning.Id, -2f, name));
-            modifiers.Add(new AttributeModifier(Db.Get().Attributes.QualityOfLife.Id, -2f, name));
-            modifiers.Add(new AttributeModifier("CaloriesDelta", (100f / 60f) * 100f, name));
+            List<AttributeModifier> modifiers = new List<AttributeModifier>
+            {
+                new AttributeModifier(Db.Get().Attributes.Athletics.Id, -3f, name),
+                new AttributeModifier(Db.Get().Attributes.Learning.Id, -2f, name),
+                new AttributeModifier(Db.Get().Attributes.QualityOfLife.Id, -2f, name),
+                new AttributeModifier("CaloriesDelta", (100f / 60f) * 100f, name)
+            };
             Preset p = new Preset(id, description, name, beginsIn, lastsFor, true, modifiers, "Elder");
 
             return p;
@@ -172,12 +186,14 @@ namespace DuplicantLifeExpectancy
             string description = "This Duplicant is approaching the end of their lifetime.";
             MathUtil.MinMax beginsIn = new MathUtil.MinMax(0, 0);
             MathUtil.MinMax lastsFor = new MathUtil.MinMax(20, 40);
-            List<AttributeModifier> modifiers = new List<AttributeModifier>();
-            modifiers.Add(new AttributeModifier(Db.Get().Attributes.Athletics.Id, -5f, name));
-            modifiers.Add(new AttributeModifier(Db.Get().Attributes.Learning.Id, -4f, name));
-            modifiers.Add(new AttributeModifier("CaloriesDelta", (100f / 60f) * 100f, name));
-            modifiers.Add(new AttributeModifier(Db.Get().Attributes.AirConsumptionRate.Id, -0.25f, name, true));
-            modifiers.Add(new AttributeModifier(Db.Get().Attributes.GermResistance.Id, -0.5f, name));
+            List<AttributeModifier> modifiers = new List<AttributeModifier>
+            {
+                new AttributeModifier(Db.Get().Attributes.Athletics.Id, -5f, name),
+                new AttributeModifier(Db.Get().Attributes.Learning.Id, -4f, name),
+                new AttributeModifier("CaloriesDelta", (100f / 60f) * 100f, name),
+                new AttributeModifier(Db.Get().Attributes.AirConsumptionRate.Id, -0.25f, name, true),
+                new AttributeModifier(Db.Get().Attributes.GermResistance.Id, -0.5f, name)
+            };
             Preset p = new Preset(id, description, name, beginsIn, lastsFor, true, modifiers, "DyingOfAge");
             return p;
         }
@@ -189,12 +205,14 @@ namespace DuplicantLifeExpectancy
             string description = "This Duplicant is within a few cycles of passing away from old age.";
             MathUtil.MinMax beginsIn = new MathUtil.MinMax(0, 0);
             MathUtil.MinMax lastsFor = new MathUtil.MinMax(3, 3);
-            List<AttributeModifier> modifiers = new List<AttributeModifier>();
-            modifiers.Add(new AttributeModifier(Db.Get().Attributes.Athletics.Id, -7f, name));
-            modifiers.Add(new AttributeModifier(Db.Get().Attributes.Learning.Id, -6f, name));
-            modifiers.Add(new AttributeModifier("CaloriesDelta", (100f / 60f) * 400f, name));
-            modifiers.Add(new AttributeModifier(Db.Get().Attributes.AirConsumptionRate.Id, -0.25f, name, true));
-            modifiers.Add(new AttributeModifier(Db.Get().Attributes.GermResistance.Id, -1.0f, name));
+            List<AttributeModifier> modifiers = new List<AttributeModifier>
+            {
+                new AttributeModifier(Db.Get().Attributes.Athletics.Id, -7f, name),
+                new AttributeModifier(Db.Get().Attributes.Learning.Id, -6f, name),
+                new AttributeModifier("CaloriesDelta", (100f / 60f) * 400f, name),
+                new AttributeModifier(Db.Get().Attributes.AirConsumptionRate.Id, -0.25f, name, true),
+                new AttributeModifier(Db.Get().Attributes.GermResistance.Id, -1.0f, name)
+            };
             Preset p = new Preset(id, description, name, beginsIn, lastsFor, true, modifiers, "", true);
             return p;
         }

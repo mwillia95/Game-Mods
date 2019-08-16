@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace ExposureNotification
 {
+    //A static class of different static variables and methods typically used in the harmony patches
     public static class Helper
     {
 
