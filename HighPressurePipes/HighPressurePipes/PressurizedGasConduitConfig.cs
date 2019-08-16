@@ -16,13 +16,13 @@ namespace HighPressurePipes
             int height = 1;
             string anim = "utilities_gas_radiant_kanim";
             int hitpoints = 10;
-            float construction_time = 14f;
-            float[] tIER = { BUILDINGS.CONSTRUCTION_MASS_KG.TIER0[0], BUILDINGS.CONSTRUCTION_MASS_KG.TIER_TINY[0] }; //25KG, 25KG
+            float construction_time = 30f;
+            float[] tIER = { BUILDINGS.CONSTRUCTION_MASS_KG.TIER0[0], BUILDINGS.CONSTRUCTION_MASS_KG.TIER0[0] }; //25KG, 25KG
             string[] constructionMaterial = { SimHashes.Steel.ToString(), MATERIALS.PLASTIC };
             float melting_point = 1600f;
             BuildLocationRule build_location_rule = BuildLocationRule.Anywhere;
             EffectorValues nONE = NOISE_POLLUTION.NONE;
-            BuildingDef buildingDef = BuildingTemplates.CreateBuildingDef(id, width, height, anim, hitpoints, construction_time, tIER, constructionMaterial, melting_point, build_location_rule, BUILDINGS.DECOR.PENALTY.TIER1, nONE);
+            BuildingDef buildingDef = BuildingTemplates.CreateBuildingDef(id, width, height, anim, hitpoints, construction_time, tIER, constructionMaterial, melting_point, build_location_rule, BUILDINGS.DECOR.PENALTY.TIER0, nONE);
             buildingDef.Floodable = false;
             buildingDef.Overheatable = false;
             buildingDef.Entombable = false;

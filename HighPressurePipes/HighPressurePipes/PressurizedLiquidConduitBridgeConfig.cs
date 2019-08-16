@@ -19,13 +19,13 @@ namespace HighPressurePipes
             int height = 1;
             string anim = "utilityliquidbridge_kanim";
             int hitpoints = 10;
-            float construction_time = 3f;
-            float[] tIER = BUILDINGS.CONSTRUCTION_MASS_KG.TIER2;
-            string[] rAW_MINERALS = MATERIALS.RAW_MINERALS;
+            float construction_time = 45f;
+            float[] tIER = { BUILDINGS.CONSTRUCTION_MASS_KG.TIER1[0], BUILDINGS.CONSTRUCTION_MASS_KG.TIER1[0] }; //50KG, 50KG
+            string[] constructionMaterial = { SimHashes.Steel.ToString(), MATERIALS.PLASTIC };
             float melting_point = 1600f;
             BuildLocationRule build_location_rule = BuildLocationRule.Conduit;
             EffectorValues nONE = NOISE_POLLUTION.NONE;
-            BuildingDef buildingDef = BuildingTemplates.CreateBuildingDef(id, width, height, anim, hitpoints, construction_time, tIER, rAW_MINERALS, melting_point, build_location_rule, BUILDINGS.DECOR.NONE, nONE);
+            BuildingDef buildingDef = BuildingTemplates.CreateBuildingDef(id, width, height, anim, hitpoints, construction_time, tIER, constructionMaterial, melting_point, build_location_rule, BUILDINGS.DECOR.PENALTY.TIER1, nONE);
             buildingDef.ObjectLayer = ObjectLayer.LiquidConduitConnection;
             buildingDef.SceneLayer = Grid.SceneLayer.LiquidConduitBridges;
             buildingDef.InputConduitType = ConduitType.Liquid;
