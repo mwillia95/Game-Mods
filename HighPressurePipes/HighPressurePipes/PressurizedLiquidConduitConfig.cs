@@ -15,7 +15,7 @@ namespace HighPressurePipes
             string id = ID;
             int width = 1;
             int height = 1;
-            string anim = "utilities_liquid_kanim";
+            string anim = "utilities_liquid_radiant_kanim";
             int hitpoints = 10;
             float construction_time = 30f;
             float[] tIER = { BUILDINGS.CONSTRUCTION_MASS_KG.TIER1[0], BUILDINGS.CONSTRUCTION_MASS_KG.TIER1[0] }; //50KG, 50KG
