@@ -62,10 +62,13 @@
     <Compile Include="PressurizedGasConduitBridgeConfig.cs" />
     <Compile Include="PressurizedGasConduitConfig.cs" />
     <Compile Include="HarmonyPatches.cs" />
+    <Compile Include="PressurizedGasValveConfig.cs" />
     <Compile Include="PressurizedLiquidConduitBridgeConfig.cs" />
     <Compile Include="PressurizedLiquidConduitConfig.cs" />
+    <Compile Include="PressurizedLiquidValveConfig.cs" />
     <Compile Include="PressurizedTuning.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tintable.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

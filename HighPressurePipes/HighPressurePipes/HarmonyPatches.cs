@@ -53,6 +53,18 @@ namespace HighPressurePipes
                 Strings.Add(prefix + ".DESC", "Yep. Carries a lot of liquid.");
                 Strings.Add(prefix + ".EFFECT", "Carries a whole lot of liquid.");
                 ModUtil.AddBuildingToPlanScreen("Plumbing", PressurizedLiquidConduitBridgeConfig.ID);
+
+                prefix = "STRINGS.BUILDINGS.PREFABS." + PressurizedGasValveConfig.ID.ToUpper();
+                Strings.Add(prefix + ".NAME", "Pressurized Gas Valve");
+                Strings.Add(prefix + ".DESC", "Yep. Limits a lot of gas.");
+                Strings.Add(prefix + ".EFFECT", "Can limit the flow of a whole lot of gas.");
+                ModUtil.AddBuildingToPlanScreen("HVAC", PressurizedGasValveConfig.ID);
+
+                prefix = "STRINGS.BUILDINGS.PREFABS." + PressurizedLiquidValveConfig.ID.ToUpper();
+                Strings.Add(prefix + ".NAME", "Pressurized Liquid Valve");
+                Strings.Add(prefix + ".DESC", "Yep. Limits a lot of liquid.");
+                Strings.Add(prefix + ".EFFECT", "Can limit the flow of a whole lot of liquid.");
+                ModUtil.AddBuildingToPlanScreen("Plumbing", PressurizedLiquidValveConfig.ID);
             }
         }
 
@@ -113,6 +125,15 @@ namespace HighPressurePipes
                     }
                     damages.Clear();
                 }
+            }
+        }
+
+        [HarmonyPatch(typeof(Immigration), "Sim200ms")]
+        internal static class Patch_Immigration_Sim200ms
+        {
+            internal static void Postfix(ref bool ___bImmigrantAvailable)
+            {
+                ___bImmigrantAvailable = true;
             }
         }
 

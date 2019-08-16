@@ -49,7 +49,7 @@ namespace HighPressurePipes
                     IncreaseMultiplier = 3f,
                     KAnimTint = new Color32(255, 120, 200, 255),
                     OverlayTint = new Color32(201, 80, 142, 0),
-                    FlowTint = new Color32(255, 90, 60, 255),
+                    FlowTint = new Color32(167, 56, 40, 255),
                     FlowOverlayTint = new Color32(201, 160, 160, 0),
                     IsDefault = false
                 }
@@ -63,7 +63,7 @@ namespace HighPressurePipes
                     IncreaseMultiplier = 3f,
                     KAnimTint = new Color32(255, 120, 255, 255),
                     OverlayTint = new Color32(201, 80, 142, 0),
-                    FlowTint = new Color32(150, 90, 60, 255),
+                    FlowTint = new Color32(255, 70, 40, 255),
                     FlowOverlayTint = new Color32(201, 160, 160, 0),
                     IsDefault = false
                 }

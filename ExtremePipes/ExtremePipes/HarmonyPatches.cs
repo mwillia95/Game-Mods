@@ -26,8 +26,8 @@ namespace ExtremePipes
                     IncreaseMultiplier = 10f,
                     KAnimTint = new Color32(240, 40, 120, 255),
                     OverlayTint = new Color32(201, 0, 30, 0),
-                    FlowTint = new Color32(200, 40, 30, 255),
-                    FlowOverlayTint = new Color32(255, 40, 10, 0),
+                    FlowTint = new Color32(140, 20, 15, 255),
+                    FlowOverlayTint = new Color32(200, 120, 80, 0),
                     IsDefault = false
                 });
                 prefix = "STRINGS.BUILDINGS.PREFABS." + ExtremeLiquidConduitConfig.ID.ToUpper();
@@ -41,8 +41,8 @@ namespace ExtremePipes
                     IncreaseMultiplier = 10f,
                     KAnimTint = new Color32(240, 40, 120, 255),
                     OverlayTint = new Color32(201, 0, 30, 0),
-                    FlowTint = new Color32(200, 40, 30, 255),
-                    FlowOverlayTint = new Color32(255, 40, 10, 0),
+                    FlowTint = new Color32(235, 40, 30, 255),
+                    FlowOverlayTint = new Color32(200, 120, 80, 0),
                     IsDefault = false
                 });
             }
