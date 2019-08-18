@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using TUNING;
-namespace HighPressurePipes
+namespace PressurizedPipes
 {
     public class PressurizedGasConduitConfig : IBuildingConfig
     {
@@ -52,6 +52,7 @@ namespace HighPressurePipes
             BuildingConfigManager.Instance.IgnoreDefaultKComponent(typeof(RequiresFoundation), prefab_tag);
             Conduit conduit = go.AddOrGet<Conduit>();
             conduit.type = ConduitType.Gas;
+            go.AddOrGet<InsulateButton>();
         }
 
         public override void DoPostConfigureComplete(GameObject go)

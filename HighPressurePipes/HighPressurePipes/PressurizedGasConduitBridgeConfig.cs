@@ -1,6 +1,6 @@
 ﻿using TUNING;
 using UnityEngine;
-namespace HighPressurePipes
+namespace PressurizedPipes
 {
     public class PressurizedGasConduitBridgeConfig : IBuildingConfig
     {

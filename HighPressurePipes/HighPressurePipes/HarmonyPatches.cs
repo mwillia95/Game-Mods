@@ -7,7 +7,7 @@ using System.Reflection.Emit;
 using UnityEngine;
 using System.Linq;
 using STRINGS;
-namespace HighPressurePipes
+namespace PressurizedPipes
 {
     internal static class HarmonyPatches
     {

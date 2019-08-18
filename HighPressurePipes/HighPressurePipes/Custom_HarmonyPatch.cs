@@ -5,7 +5,7 @@ using System.Reflection.Emit;
 using Harmony;
 using System.Reflection;
 using UnityEngine;
-namespace HighPressurePipes
+namespace PressurizedPipes
 {
     public static class CustomPatcher
     {
@@ -15,8 +15,9 @@ namespace HighPressurePipes
         private static readonly Type RenderMeshContext = AccessTools.TypeByName("ConduitFlowVisualizer+RenderMeshContext");
         private static Type RenderMeshTask = AccessTools.TypeByName("ConduitFlowVisualizer+RenderMeshTask");
 
-        public static void OnLoad()
+        public static void PostPatch(HarmonyInstance instance)
         {
+            Debug.Log("[Pressurized] Patched!");
             MethodInfo[] methodList = RenderMeshTask.GetMethods();
             foreach (MethodInfo method in methodList)
             {
@@ -27,8 +28,8 @@ namespace HighPressurePipes
             }
 
             Context_Outer = AccessTools.Field(RenderMeshContext, "outer");
-            var harmony = HarmonyInstance.Create("Super_Corgi_PressurizedPipes_CustomHarmony");
-            harmony.Patch(Original_Target, null, null, new HarmonyMethod(Patch_Transpiler));
+            //var harmony = HarmonyInstance.Create("Super_Corgi_PressurizedPipes_CustomHarmony");
+            instance.Patch(Original_Target, null, null, new HarmonyMethod(Patch_Transpiler));
         }
         //Purpose: To modify the size of the flowing contents to accomodate the potential increased capacity of some conduits
         //Normally, the flow caps off in scaling at 1KG/10KG (gas/liquid). Change the behaviour to consider if the contents are in a higher capacity conduit than is standard.
@@ -86,7 +87,7 @@ namespace HighPressurePipes
                     }
                     else//static
                     {
-                        yield return new CodeInstruction(OpCodes.Ldloc_S, 5); //cell
+                        yield return new CodeInstruction(OpCodes.Ldloc_S, 17); //cell2
                         yield return new CodeInstruction(OpCodes.Ldarg_1); //context.outer.flowManager.conduitType
                         yield return new CodeInstruction(OpCodes.Ldfld, Context_Outer);
                         yield return new CodeInstruction(OpCodes.Ldfld, flowManager);

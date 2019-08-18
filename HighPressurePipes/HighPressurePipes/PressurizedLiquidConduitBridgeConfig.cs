@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using TUNING;
 
-namespace HighPressurePipes
+namespace PressurizedPipes
 {
     public class PressurizedLiquidConduitBridgeConfig : IBuildingConfig
     {

@@ -5,7 +5,7 @@ using System.Reflection.Emit;
 using Harmony;
 using UnityEngine;
 
-namespace HighPressurePipes
+namespace PressurizedPipes
 {
     public static class Integration
     {
@@ -92,7 +92,6 @@ namespace HighPressurePipes
 
         public static Pressurized GetPressurizedAt(int cell, int layer)
         {
-
             return Grid.Objects[cell, layer]?.GetComponent<Pressurized>();
         }
         public static Pressurized GetPressurizedAt(int cell, ConduitType type, bool isBridge = false)

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-namespace HighPressurePipes
+namespace PressurizedPipes
 {
     public class PressurizedInfo
     {   

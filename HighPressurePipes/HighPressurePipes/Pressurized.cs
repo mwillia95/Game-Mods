@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Runtime.Serialization;
 using KSerialization;
-namespace HighPressurePipes
+namespace PressurizedPipes
 {
     [SerializationConfig(MemberSerialization.OptIn)]
     public class Pressurized : KMonoBehaviour, ISaveLoadable
@@ -14,6 +14,10 @@ namespace HighPressurePipes
 
         [MyCmpGet]
         private Building building;
+        [MyCmpGet]
+        private Conduit conduit;
+        [MyCmpGet]
+        private ConduitBridge bridge;
 
         private bool _loadedInfo = false;
 
@@ -23,17 +27,11 @@ namespace HighPressurePipes
             _loadedInfo = true;
             string id = building.Def.PrefabID;
             Info = PressurizedTuning.GetPressurizedInfo(id);
-            if (!Info.IsDefault)
-            {
-                Debug.Log($"[Pressurized] Loaded a non-default pipe!");
-            }
         }
 
         protected override void OnSpawn()
         {
             base.OnSpawn();
-            Conduit conduit = GetComponent<Conduit>();
-            ConduitBridge bridge = GetComponent<ConduitBridge>();
             if(conduit == null && bridge == null)
                 Debug.LogError($"[Pressurized] Pressurized component should not be added unless there is an accomponying Conduit or ConduitBridge component.");
             if (!_loadedInfo)

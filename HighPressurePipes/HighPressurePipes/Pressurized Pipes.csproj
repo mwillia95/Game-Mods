@@ -56,6 +56,8 @@
   <ItemGroup>
     <Compile Include="Custom_HarmonyPatch.cs" />
     <Compile Include="HighPressureLiquidReservoirConfig.cs" />
+    <Compile Include="Insulatable.cs" />
+    <Compile Include="InsulateButton.cs" />
     <Compile Include="IntegrationHelper.cs" />
     <Compile Include="Pressurized.cs" />
     <Compile Include="PressurizedGasConduitBridgeConfig.cs" />

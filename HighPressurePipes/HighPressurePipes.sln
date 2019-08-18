@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.645
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighPressurePipes", "HighPressurePipes\HighPressurePipes.csproj", "{C19517D7-C6F3-40DE-88A2-1844EFCB5CE9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pressurized Pipes", "HighPressurePipes\Pressurized Pipes.csproj", "{C19517D7-C6F3-40DE-88A2-1844EFCB5CE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,7 +1,7 @@
 ﻿
 using UnityEngine;
 using System.Collections.Generic;
-namespace HighPressurePipes
+namespace PressurizedPipes
 {
     /*
      *  To simplify the logic to tint buildings

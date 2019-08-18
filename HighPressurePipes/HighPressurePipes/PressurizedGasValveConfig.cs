@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TUNING;
 using UnityEngine;
-namespace HighPressurePipes
+namespace PressurizedPipes
 {
     public class PressurizedGasValveConfig : IBuildingConfig
     {
