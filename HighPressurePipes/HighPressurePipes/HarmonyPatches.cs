@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using UnityEngine;
 using System.Linq;
-
+using STRINGS;
 namespace HighPressurePipes
 {
     internal static class HarmonyPatches
@@ -30,40 +30,41 @@ namespace HighPressurePipes
         {
             public static void Prefix()
             {
+                //PRESSURIZED GAS PIPE
                 string prefix = "STRINGS.BUILDINGS.PREFABS." + PressurizedGasConduitConfig.ID.ToUpper();
                 Strings.Add(prefix + ".NAME", "Pressurized Gas Pipe");
-                Strings.Add(prefix + ".DESC", "Yep. Carries a lot of gas.");
-                Strings.Add(prefix + ".EFFECT", "Carries a whole lot of gas.");
+                Strings.Add(prefix + ".DESC", "Able to contain significantly more gas than standard gas pipes.");
+                Strings.Add(prefix + ".EFFECT", $"Carries {UI.FormatAsLink("Gas", "ELEMENTS_GAS")} between {UI.FormatAsLink("Outputs", "GASPIPING")} and {UI.FormatAsLink("Intakes", "GASPIPING")}.\n\nCan carry a maximum of 3KG of gasses. Can also connect to regular gas pipes, but may damage pipes with a lower maximum capacity if the flow is too strong, especially to bridges.");
                 ModUtil.AddBuildingToPlanScreen("HVAC", PressurizedGasConduitConfig.ID);
-
+                //PRESSURIZED GAS BRIDGE
                 prefix = "STRINGS.BUILDINGS.PREFABS." + PressurizedGasConduitBridgeConfig.ID.ToUpper();
                 Strings.Add(prefix + ".NAME", "Pressurized Gas Bridge");
-                Strings.Add(prefix + ".DESC", "Yep. Carries a lot of gas.");
-                Strings.Add(prefix + ".EFFECT", "Carries a whole lot of gas.");
+                Strings.Add(prefix + ".DESC", "Is able to bridge upwards of 3KG of gas without damaging itself.");
+                Strings.Add(prefix + ".EFFECT", $"A gas bridge built with steel and plastics.\n\nCan carry a maximum of 3KG of {UI.FormatAsLink("Gas", "ELEMENTS_LIQUID")}. May damage connected output pipes if too much flow is in the input pipe.");
                 ModUtil.AddBuildingToPlanScreen("HVAC", PressurizedGasConduitBridgeConfig.ID);
-
+                //PRESSURIZED LIQUID PIPE
                 prefix = "STRINGS.BUILDINGS.PREFABS." + PressurizedLiquidConduitConfig.ID.ToUpper();
                 Strings.Add(prefix + ".NAME", "Pressurized Liquid Pipe");
-                Strings.Add(prefix + ".DESC", "Yep. Carries a lot of liquid.");
-                Strings.Add(prefix + ".EFFECT", "Carries a whole lot of liquid.");
+                Strings.Add(prefix + ".DESC", "Able to contain significantly more liquid than standard liquid pipes");
+                Strings.Add(prefix + ".EFFECT", $"Carries {UI.FormatAsLink("Liquid", "ELEMENTS_LIQUID")} between {UI.FormatAsLink("Outputs", "LIQUIDPIPING")} and {UI.FormatAsLink("Intakes", "LIQUIDPIPING")}.\n\nCan carry a maximum of 30KG of {UI.FormatAsLink("Liquid", "ELEMENTS_LIQUID")}. Can also connect to regular liquid pipes, but may damage pipes with a lower maximum capacity if the flow is too strong, especially to bridges.");
                 ModUtil.AddBuildingToPlanScreen("Plumbing", PressurizedLiquidConduitConfig.ID);
-
+                //PRESSURIZED LIQUID BRIDGE
                 prefix = "STRINGS.BUILDINGS.PREFABS." + PressurizedLiquidConduitBridgeConfig.ID.ToUpper();
                 Strings.Add(prefix + ".NAME", "Pressurized Liquid Bridge");
-                Strings.Add(prefix + ".DESC", "Yep. Carries a lot of liquid.");
-                Strings.Add(prefix + ".EFFECT", "Carries a whole lot of liquid.");
+                Strings.Add(prefix + ".DESC", "Is able to bridge upwards of 3KG of gas without damaging itself.");
+                Strings.Add(prefix + ".EFFECT", $"A liquid bridge built with steel and plastics.\n\nCan carry a maximum of 30KG of {UI.FormatAsLink("Liquid", "ELEMENTS_LIQUID")}. May damage connected output pipes if too much flow is in the input pipe.");
                 ModUtil.AddBuildingToPlanScreen("Plumbing", PressurizedLiquidConduitBridgeConfig.ID);
-
+                //PRESSURIZED GAS VALVE
                 prefix = "STRINGS.BUILDINGS.PREFABS." + PressurizedGasValveConfig.ID.ToUpper();
                 Strings.Add(prefix + ".NAME", "Pressurized Gas Valve");
-                Strings.Add(prefix + ".DESC", "Yep. Limits a lot of gas.");
-                Strings.Add(prefix + ".EFFECT", "Can limit the flow of a whole lot of gas.");
+                Strings.Add(prefix + ".DESC", "A gas valve that can fully support the flow of a Pressurized Gas Pipe.");
+                Strings.Add(prefix + ".EFFECT", "Can limit flow by up to 3KG. Will not be damaged by strong flows and will not damage connected outputs.");
                 ModUtil.AddBuildingToPlanScreen("HVAC", PressurizedGasValveConfig.ID);
-
+                //PRESSURIZED LIQUID VALVE
                 prefix = "STRINGS.BUILDINGS.PREFABS." + PressurizedLiquidValveConfig.ID.ToUpper();
                 Strings.Add(prefix + ".NAME", "Pressurized Liquid Valve");
-                Strings.Add(prefix + ".DESC", "Yep. Limits a lot of liquid.");
-                Strings.Add(prefix + ".EFFECT", "Can limit the flow of a whole lot of liquid.");
+                Strings.Add(prefix + ".DESC", "A liquid valve that can fully support the flow of a Pressurized Liquid Pipe.");
+                Strings.Add(prefix + ".EFFECT", "Can limit flow by up to 30KG. Will not be damaged by strong flows and will not damage connected outputs.");
                 ModUtil.AddBuildingToPlanScreen("Plumbing", PressurizedLiquidValveConfig.ID);
             }
         }
@@ -74,9 +75,20 @@ namespace HighPressurePipes
         {
             public static void Prefix()
             {
-                List<string> list = new List<string>(Techs.TECH_GROUPING["ImprovedOxygen"]);
-                list.Add(PressurizedGasConduitConfig.ID);
-                Techs.TECH_GROUPING["ImprovedOxygen"] = list.ToArray();
+                //List<string> list = new List<string>(Techs.TECH_GROUPING["ImprovedOxygen"]);
+                //list.Add(PressurizedGasConduitConfig.ID);
+                //Techs.TECH_GROUPING["ImprovedOxygen"] = list.ToArray();
+                List<string> hvac = new List<string>(Techs.TECH_GROUPING["HVAC"]) { PressurizedGasConduitConfig.ID, PressurizedGasConduitBridgeConfig.ID };
+                Techs.TECH_GROUPING["HVAC"] = hvac.ToArray();
+
+                List<string> imprLiqPiping = new List<string>(Techs.TECH_GROUPING["ImprovedLiquidPiping"]) { PressurizedLiquidValveConfig.ID };
+                Techs.TECH_GROUPING["ImprovedLiquidPiping"] = imprLiqPiping.ToArray();
+
+                List<string> igp = new List<string>(Techs.TECH_GROUPING["ImprovedGasPiping"]) { PressurizedGasValveConfig.ID };
+                Techs.TECH_GROUPING["ImprovedGasPiping"] = igp.ToArray();
+
+                List<string> lt = new List<string>(Techs.TECH_GROUPING["LiquidTemperature"]) { PressurizedLiquidConduitConfig.ID, PressurizedLiquidConduitBridgeConfig.ID };
+                (Techs.TECH_GROUPING["LiquidTemperature"]) = lt.ToArray();
             }
         }
 
@@ -89,6 +101,8 @@ namespace HighPressurePipes
                 Pressurized pressure = controller.GetComponent<Pressurized>();
                 if (!Pressurized.IsDefault(pressure))
                     controller.TintColour = pressure.Info.KAnimTint;
+                else
+                    controller.GetComponent<Tintable>()?.SetTint();
             }
         }
 
@@ -118,22 +132,12 @@ namespace HighPressurePipes
                 List<Integration.QueueDamage> damages = Integration.queueDamages;
                 if (damages.Count > 0)
                 {
-                    //Debug.Log($"[Pressurized] We've got a lot of damage to do!");
                     foreach (Integration.QueueDamage info in damages)
                     {
                         info.Receiver.Trigger((int)GameHashes.DoBuildingDamage, info.Damage);
                     }
                     damages.Clear();
                 }
-            }
-        }
-
-        [HarmonyPatch(typeof(Immigration), "Sim200ms")]
-        internal static class Patch_Immigration_Sim200ms
-        {
-            internal static void Postfix(ref bool ___bImmigrantAvailable)
-            {
-                ___bImmigrantAvailable = true;
             }
         }
 
@@ -242,7 +246,6 @@ namespace HighPressurePipes
         [HarmonyPatch(typeof(ConduitFlow), "IsConduitFull")]
         internal static class Patch_ConduitFlow_IsConduitFull
         {
-
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
                 foreach (CodeInstruction code in instructions)
@@ -299,11 +302,12 @@ namespace HighPressurePipes
         [HarmonyPatch(typeof(ConduitBridge), "ConduitUpdate")]
         internal static class Patch_ConduitBridge_ConduitUpdate
         {
+            private static FieldInfo bridgeOutputCell;
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
-               // Debug.LogWarning($"[Pressurized] Beginning transpiler for ConduitBridge update");
                 MethodInfo flowManagerGetContents = AccessTools.Method(typeof(ConduitFlow), "GetContents");
                 MethodInfo setMaxFlowPatch = AccessTools.Method(typeof(Patch_ConduitBridge_ConduitUpdate), nameof(SetMaxFlow));
+                bridgeOutputCell = AccessTools.Field(typeof(ConduitBridge), "outputCell");
                 foreach (CodeInstruction original in instructions)
                 {
                     if (original.opcode == OpCodes.Callvirt && original.operand == flowManagerGetContents)
@@ -326,9 +330,13 @@ namespace HighPressurePipes
                     contents.RemoveMass(contents.mass);
                     return contents;
                 }
+                int outputCell = (int)bridgeOutputCell.GetValue(bridge);
+                GameObject outputObject = Grid.Objects[outputCell, Integration.layers[(int)bridge.type]];
+                if (outputObject == null)
+                    return contents;
                 Pressurized pressure = bridge.GetComponent<Pressurized>();
                 float capacity;
-                if (pressure?.Info?.Capacity > 0f)
+                if (!Pressurized.IsDefault(pressure))
                     capacity = pressure.Info.Capacity;
                 else
                     capacity = (float)maxMass.GetValue(manager);
@@ -343,6 +351,20 @@ namespace HighPressurePipes
                     contents.diseaseCount = (int)((float)contents.diseaseCount * ratio);
                     BuildingHP.DamageSourceInfo damage = Integration.GetPressureDamage();
                     bridge.Trigger((int)GameHashes.DoBuildingDamage, damage);
+                }
+                {
+                    float targetCapacity;
+                    Pressurized outPressure = outputObject.GetComponent<Pressurized>();
+                    if (!Pressurized.IsDefault(outPressure))
+                        targetCapacity = outPressure.Info.Capacity;
+                    else
+                        targetCapacity = (float)maxMass.GetValue(manager);
+
+                    if(contents.mass > targetCapacity * 2)
+                    {
+                        BuildingHP.DamageSourceInfo damage = Integration.GetPressureDamage();
+                        outputObject.Trigger((int)GameHashes.DoBuildingDamage, damage);
+                    }
                 }
                 return contents;
             }

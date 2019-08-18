@@ -25,8 +25,8 @@ namespace HighPressurePipes
             BuildLocationRule build_location_rule = BuildLocationRule.Anywhere;
             EffectorValues tIER2 = NOISE_POLLUTION.NOISY.TIER1;
             BuildingDef buildingDef = BuildingTemplates.CreateBuildingDef(id, width, height, anim, hitpoints, construction_time, tIER, constructionMaterial, melting_point, build_location_rule, BUILDINGS.DECOR.PENALTY.TIER1, tIER2);
-            buildingDef.InputConduitType = ConduitType.Gas;
-            buildingDef.OutputConduitType = ConduitType.Gas;
+            buildingDef.InputConduitType = CONDUIT_TYPE;
+            buildingDef.OutputConduitType = CONDUIT_TYPE;
             buildingDef.Floodable = false;
             buildingDef.ViewMode = OverlayModes.GasConduits.ID;
             buildingDef.AudioCategory = "Metal";
@@ -41,7 +41,7 @@ namespace HighPressurePipes
             GeneratedBuildings.MakeBuildingAlwaysOperational(go);
             BuildingConfigManager.Instance.IgnoreDefaultKComponent(typeof(RequiresFoundation), prefab_tag);
             ValveBase valveBase = go.AddOrGet<ValveBase>();
-            valveBase.conduitType = ConduitType.Gas;
+            valveBase.conduitType = CONDUIT_TYPE;
             valveBase.maxFlow = 3f;
             valveBase.animFlowRanges = new ValveBase.AnimRangeInfo[3]
             {
@@ -51,7 +51,6 @@ namespace HighPressurePipes
             };
             go.AddOrGet<Valve>();
             Tintable tint = go.AddOrGet<Tintable>();
-            tint.TintColour = new Color32(255, 160, 120, 255);
             Workable workable = go.AddOrGet<Workable>();
             workable.workTime = 5f;
         }

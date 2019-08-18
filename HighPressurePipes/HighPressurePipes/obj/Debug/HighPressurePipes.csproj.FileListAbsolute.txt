@@ -1,0 +1,5 @@
+C:\Users\Mitchell\Desktop\Repos\Game-Mods\HighPressurePipes\HighPressurePipes\obj\Debug\HighPressurePipes.csprojResolveAssemblyReference.cache
+C:\Users\Mitchell\Documents\Klei\OxygenNotIncluded\mods\dev\Local Pressurized Pipes\HighPressurePipes.dll
+C:\Users\Mitchell\Documents\Klei\OxygenNotIncluded\mods\dev\Local Pressurized Pipes\HighPressurePipes.pdb
+C:\Users\Mitchell\Desktop\Repos\Game-Mods\HighPressurePipes\HighPressurePipes\obj\Debug\HighPressurePipes.dll
+C:\Users\Mitchell\Desktop\Repos\Game-Mods\HighPressurePipes\HighPressurePipes\obj\Debug\HighPressurePipes.pdb

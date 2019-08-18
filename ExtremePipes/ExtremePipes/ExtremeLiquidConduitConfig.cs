@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using TUNING;
 using UnityEngine;
+using HighPressurePipes;
 namespace ExtremePipes
 {
     class ExtremeLiquidConduitConfig : IBuildingConfig
@@ -53,6 +54,8 @@ namespace ExtremePipes
             BuildingConfigManager.Instance.IgnoreDefaultKComponent(typeof(RequiresFoundation), prefab_tag);
             Conduit conduit = go.AddOrGet<Conduit>();
             conduit.type = ConduitType.Liquid;
+            go.AddOrGet<Tintable>();
+            Tintable.AddToTintTable(ID, new Color32(255, 0, 0, 255));
         }
 
         public override void DoPostConfigureComplete(GameObject go)

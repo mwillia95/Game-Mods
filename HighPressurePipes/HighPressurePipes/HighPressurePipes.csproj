@@ -55,7 +55,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Custom_HarmonyPatch.cs" />
-    <Compile Include="HighPressureGasResevoir.cs" />
     <Compile Include="HighPressureLiquidReservoirConfig.cs" />
     <Compile Include="IntegrationHelper.cs" />
     <Compile Include="Pressurized.cs" />

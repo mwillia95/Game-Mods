@@ -1,0 +1,5 @@
+C:\Users\Mitchell\Documents\Klei\OxygenNotIncluded\mods\dev\Local Extreme Pipes\ExtremePipes.dll
+C:\Users\Mitchell\Documents\Klei\OxygenNotIncluded\mods\dev\Local Extreme Pipes\ExtremePipes.pdb
+C:\Users\Mitchell\Desktop\Repos\Game-Mods\ExtremePipes\ExtremePipes\obj\Debug\ExtremePipes.csprojResolveAssemblyReference.cache
+C:\Users\Mitchell\Desktop\Repos\Game-Mods\ExtremePipes\ExtremePipes\obj\Debug\ExtremePipes.dll
+C:\Users\Mitchell\Desktop\Repos\Game-Mods\ExtremePipes\ExtremePipes\obj\Debug\ExtremePipes.pdb
